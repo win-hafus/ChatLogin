@@ -1,0 +1,8 @@
+name: ChatLogin
+version: 1.0.0
+main: ru.chatlogin.ChatLoginPlugin
+api-version: '1.21'
+description: Авторизация через чат без команд /login и /register
+author: ChatLogin
+depend:
+  - AuthMe
