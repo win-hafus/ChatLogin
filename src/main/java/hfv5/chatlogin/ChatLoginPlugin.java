@@ -156,9 +156,13 @@ public class ChatLoginPlugin extends JavaPlugin implements Listener, CommandExec
                 return;
             }
 
-            boolean registered = authMeApi.registerPlayer(player.getName(), password);
+            authMeApi.registerPlayer(player.getName(), password);
+            boolean registered = authMeApi.isRegistered(player.getName());
+            
             if (registered) {
-                boolean loggedIn = authMeApi.forceLogin(player);
+                authMeApi.forceLogin(player);
+                boolean loggedIn = authMeApi.isAuthenticated(player);
+                
                 authStates.remove(player.getUniqueId());
                 if (loggedIn) {
                     player.sendMessage(Component.text("Успешная регистрация! Добро пожаловать.", NamedTextColor.GREEN));
@@ -181,7 +185,10 @@ public class ChatLoginPlugin extends JavaPlugin implements Listener, CommandExec
             }
 
             if (authMeApi.checkPassword(player.getName(), password)) {
-                boolean loggedIn = authMeApi.forceLogin(player);
+                
+                authMeApi.forceLogin(player);
+                boolean loggedIn = authMeApi.isAuthenticated(player);
+                
                 if (loggedIn) {
                     authStates.remove(player.getUniqueId());
                     player.sendMessage(Component.text("С возвращением!", NamedTextColor.GREEN));
@@ -193,7 +200,10 @@ public class ChatLoginPlugin extends JavaPlugin implements Listener, CommandExec
                             authStates.remove(player.getUniqueId());
                             return;
                         }
-                        boolean retryLogin = authMeApi.forceLogin(player);
+                        
+                        authMeApi.forceLogin(player);
+                        boolean retryLogin = authMeApi.isAuthenticated(player);
+                        
                         if (retryLogin) {
                             authStates.remove(player.getUniqueId());
                             player.sendMessage(Component.text("С возвращением!", NamedTextColor.GREEN));
