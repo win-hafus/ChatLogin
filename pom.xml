@@ -5,9 +5,9 @@
          http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>ru.chatlogin</groupId>
+    <groupId>hfv5.chatlogin</groupId>
     <artifactId>ChatLogin</artifactId>
-    <version>1.0.0</version>
+    <version>1.2.2</version>
     <packaging>jar</packaging>
 
     <properties>
@@ -53,7 +53,7 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <mainClass>ru.chatlogin.ChatLoginPlugin</mainClass>
+                            <mainClass>hfv5.chatlogin.ChatLoginPlugin</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
