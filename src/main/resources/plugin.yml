@@ -1,8 +1,19 @@
 name: ChatLogin
-version: 1.0.0
-main: ru.chatlogin.ChatLoginPlugin
+version: 1.2.2
+main: hfv5.chatlogin.ChatLoginPlugin
 api-version: '1.21'
 description: Авторизация через чат без команд /login и /register
-author: ChatLogin
+author: Hafus
 depend:
   - AuthMe
+
+commands:
+  chatlogin:
+    description: Управление перехватом чата
+    permission: chatlogin.admin
+    usage: /<command> <enable|disable>
+
+permissions:
+  chatlogin.admin:
+    description: Позволяет включать и выключать плагин
+    default: op
